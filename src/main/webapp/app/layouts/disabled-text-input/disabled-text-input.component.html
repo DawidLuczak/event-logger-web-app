@@ -1,0 +1,10 @@
+<input
+  type="text"
+  pInputText
+  [(ngModel)]="text"
+  (ngModelChange)="textChanged($event)"
+  [disabled]="disabled"
+  [placeholder]="placeholder"
+  [ngClass]="styleClass && disabled ? 'input-disabled' : 'input-enabled'"
+  [style]="style"
+/>
