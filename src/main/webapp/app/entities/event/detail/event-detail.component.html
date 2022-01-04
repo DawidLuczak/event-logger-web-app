@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+  <div class="col-12">
+    <div *ngIf="event">
+      <div class="entity-header-container">
+        <div class="entity-id-shadow">{{ event.id }}</div>
+        <div class="entity-header">{{ event.title }}</div>
+        <div style="position: absolute; right: 1em; top: 1em">
+          <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+            <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+          </button>
+          <button type="button" (click)="openEditDialog(event)" class="btn btn-primary">
+            <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+          </button>
+        </div>
+      </div>
+      <hr style="margin-bottom: -1em" />
+      <jhi-alert-error></jhi-alert-error>
+      <jhi-alert></jhi-alert>
+      <p-accordion class="accordion" [multiple]="true">
+        <p-accordionTab header="Szczegóły" [selected]="true">
+          <div class="d-flex row justify-content-center">
+            <dl class="table_entity-details">
+              <dt>
+                <span jhiTranslate="eventloggerApp.event.description"></span>
+              </dt>
+              <dd>
+                <span>{{ event.description }}</span>
+              </dd>
+              <dt>
+                <span jhiTranslate="eventloggerApp.event.type"></span>
+              </dt>
+              <dd>
+                <span>{{ event.type }}</span>
+              </dd>
+              <dt>
+                <span jhiTranslate="eventloggerApp.event.startDate"></span>
+              </dt>
+              <dd>
+                <span>{{ event.startDate | date: 'shortDate' }}</span>
+              </dd>
+              <dt>
+                <span jhiTranslate="eventloggerApp.event.endDate"></span>
+              </dt>
+              <dd>
+                <span>{{ event.endDate | date: 'shortDate' }}</span>
+              </dd>
+              <dt>
+                <span jhiTranslate="eventloggerApp.event.type"></span>
+              </dt>
+              <dd>
+                <span>{{ event.type }}</span>
+              </dd>
+              <dt>
+                <span jhiTranslate="eventloggerApp.event.salary"></span>
+              </dt>
+              <dd>
+                <span>{{ event.pensum }}</span>
+              </dd>
+              <dt>
+                <span jhiTranslate="eventloggerApp.event.employee"></span>
+              </dt>
+              <dd>
+                <a [routerLink]="['/employee', event.employee?.id, 'employee-view']">{{
+                  event.employee?.firstName + ' ' + event.employee?.lastName
+                }}</a>
+              </dd>
+              <dt>
+                <span jhiTranslate="eventloggerApp.event.schedule"></span>
+              </dt>
+              <dd>
+                <a [routerLink]="['/schedule', event.schedule?.id, 'schedule-view']">{{ event.schedule?.title }}</a>
+              </dd>
+            </dl>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>

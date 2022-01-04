@@ -1,0 +1,50 @@
+<p-table [value]="events">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>
+        <span jhiTranslate="eventloggerApp.event.title"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.event.description"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.event.type"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.event.pensum"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.event.startDate"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.event.endDate"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.event.employee"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.event.schedule"></span>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-event>
+    <tr>
+      <td>
+        <a [routerLink]="['/event', event.id, 'event-view']">{{ event.title }}</a>
+      </td>
+      <td>{{ event.description }}</td>
+      <td>{{ event.type }}</td>
+      <td>{{ event.pensum }}</td>
+      <td>{{ event.startDate | date: 'short' }}</td>
+      <td>{{ event.endDate | date: 'short' }}</td>
+      <td>
+        <a [routerLink]="['/employee', event.employee?.id, 'employee-view']">{{
+          event.employee?.firstName + ' ' + event.employee?.lastName
+        }}</a>
+      </td>
+      <td>
+        <a [routerLink]="['/schedule', event.schedule?.id, 'schedule-view']">{{ event.schedule?.title }}</a>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
