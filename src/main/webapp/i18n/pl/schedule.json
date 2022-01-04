@@ -1,0 +1,29 @@
+{
+  "eventloggerApp": {
+    "schedule": {
+      "home": {
+        "title": "Plany",
+        "refreshListLabel": "Odśwież listę",
+        "createLabel": "Dodaj Plan",
+        "createOrEditLabel": "Dodaj lub edytuj: Plan",
+        "notFound": "Nie znaleziono Planów"
+      },
+      "created": "Utworzono nowy Plan z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono Plan z identyfikatorem {{ param }}",
+      "deleted": "Usunięto Plan z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Plan {{ id }}?"
+      },
+      "detail": {
+        "title": "Plan"
+      },
+      "id": "ID",
+      "title": "Tytuł",
+      "description": "Opis",
+      "department": "Departament",
+      "events": "Zajęcia",
+      "pensum": "Pensum",
+      "employees": "Pracownicy"
+    }
+  }
+}

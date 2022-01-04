@@ -1,0 +1,26 @@
+{
+  "eventloggerApp": {
+    "community": {
+      "home": {
+        "title": "Grupy Społeczne",
+        "refreshListLabel": "Odśwież listę",
+        "createLabel": "Dodaj Grupę Społeczną",
+        "createOrEditLabel": "Dodaj lub edytuj: Grupę Społeczną",
+        "notFound": "Nie znaleziono Grup Społecznych"
+      },
+      "created": "Utworzono nową Grupę Społeczną z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono Grupę Społeczną z identyfikatorem {{ param }}",
+      "deleted": "Usunięto Grupę Społeczną z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Grupę Społeczną {{ id }}?"
+      },
+      "detail": {
+        "title": "Grupa Społeczna"
+      },
+      "id": "ID",
+      "title": "Tytuł",
+      "description": "Opis",
+      "employees": "Pracownicy"
+    }
+  }
+}

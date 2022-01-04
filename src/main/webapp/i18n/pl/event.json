@@ -1,0 +1,31 @@
+{
+  "eventloggerApp": {
+    "event": {
+      "home": {
+        "title": "Zajęcia",
+        "refreshListLabel": "Odśwież listę zajęć",
+        "createLabel": "Dodaj Zajęcie",
+        "createOrEditLabel": "Dodaj lub edytuj: Zajęcie",
+        "notFound": "Nie znaleziono Zajęć"
+      },
+      "created": "Utworzono nowe Zajęcie z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono Zajęcie z identyfikatorem {{ param }}",
+      "deleted": "Usunięto Zajęcie z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Zajęcie {{ id }}?"
+      },
+      "detail": {
+        "title": "Zajęcie"
+      },
+      "id": "ID",
+      "title": "Tytuł",
+      "description": "Opis",
+      "startDate": "Data rozpoczęcia",
+      "endDate": "Data zakończenia",
+      "type": "Typ",
+      "pensum": "Pensum",
+      "schedule": "Plan",
+      "employee": "Pracownik"
+    }
+  }
+}
