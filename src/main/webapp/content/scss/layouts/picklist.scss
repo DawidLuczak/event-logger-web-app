@@ -1,0 +1,93 @@
+@import '../bootstrap-variables';
+
+.p-picklist-item {
+  height: 2em;
+}
+
+.p-picklist-item:nth-child(2n-1) {
+  background-color: $secondary;
+}
+
+.p-picklist-item:focus,
+.p-picklist-item:nth-child(2n-1):focus {
+  background-color: $primary;
+  color: white;
+}
+
+.p-picklist-list {
+  border: 1px solid $darkbg5;
+  height: 100%;
+  text-align: center;
+  padding: auto;
+}
+
+.p-picklist-text {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-top: 0.1em;
+}
+
+.p-picklist-header {
+  background-color: $primary;
+  color: $lightfont;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.p-picklist-filter {
+  input {
+    text-align: center;
+    border: 1px dashed $primary1;
+  }
+
+  input:focus {
+    border: 2px dashed $primary1;
+  }
+  input::after {
+    border: 2px dashed $primary1;
+  }
+  input::selection {
+    border: 2px dashed $primary1;
+  }
+  input::-moz-selection {
+    border: 2px dashed $primary1;
+  }
+}
+
+.p-picklist-buttons {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  button {
+    background-color: $secondary;
+    border: 1px dashed $primary;
+    border-radius: 20%;
+    margin: 0.2em;
+    box-shadow: 1px 1px 1px $primary;
+    span {
+      color: $primary1;
+    }
+  }
+}
+
+.p-picklist-target-controls {
+  button {
+    background-color: $primary;
+    border: 1px dashed $secondary1;
+    box-shadow: 1px 1px 1px $secondary1;
+    span {
+      color: white;
+    }
+  }
+}
+
+.p-picklist-source-controls {
+  button {
+    background-color: $primary;
+    border: 1px dashed $secondary1;
+    box-shadow: 1px 1px 1px $secondary1;
+    span {
+      color: white;
+    }
+  }
+}

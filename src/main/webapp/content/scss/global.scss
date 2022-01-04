@@ -3,8 +3,21 @@
 @import '~bootstrap/scss/variables';
 
 /* ==============================================================
+Custom styles
+===============================================================*/
+
+@import 'layouts/picklist.scss';
+@import 'layouts/navbar-panelmenu.scss';
+
+/* ==============================================================
 Bootstrap tweaks
 ===============================================================*/
+
+$purp: rgb(94, 73, 167);
+
+hr {
+  background-color: $darkbg5;
+}
 
 body,
 h1,
@@ -12,26 +25,6 @@ h2,
 h3,
 h4 {
   font-weight: 300;
-}
-
-/* Increase contrast of links to get 100% on Lighthouse Accessability Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
-a {
-  color: #533f03;
-  font-weight: bold;
-}
-
-a:hover {
-  color: #533f03;
-}
-
-/* override hover color for dropdown-item forced by bootstrap to all a:not([href]):not([tabindex]) elements in _reboot.scss */
-a:not([href]):not([tabindex]):hover.dropdown-item {
-  color: $dropdown-link-hover-color;
-}
-
-/* override .dropdown-item.active background-color on hover */
-.dropdown-item.active:hover {
-  background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
 }
 
 a:hover {
@@ -57,21 +50,10 @@ Browser Upgrade Prompt
 Generic styles
 ========================================================================== */
 
-/* Error highlight on input fields */
-.ng-valid[required],
-.ng-valid.required {
-  border-left: 5px solid green;
-}
-
-.ng-invalid:not(form) {
-  border-left: 5px solid red;
-}
-
 /* other generic styles */
 
 .jh-card {
   padding: 1.5%;
-  margin-top: 20px;
   border: none;
 }
 
@@ -102,10 +84,6 @@ Generic styles
   opacity: 1;
 }
 
-.footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
-}
-
 .hand,
 [jhisortby] {
   cursor: pointer;
@@ -115,8 +93,18 @@ Generic styles
 Custom alerts for notification
 ========================================================================== */
 .alerts {
+  position: fixed;
+  top: 3em;
+  right: 1em;
+
   .alert {
+    border: 1px solid $primary5;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
     text-overflow: ellipsis;
+    font-size: 1.2em;
+    color: #000;
+    font-weight: 500;
     pre {
       background: none;
       border: none;
@@ -126,12 +114,13 @@ Custom alerts for notification
       margin: 0;
     }
     .popover pre {
-      font-size: 10px;
+      font-size: 1.5em;
     }
   }
   .jhi-toast {
     position: fixed;
     width: 100%;
+    z-index: -100;
     &.left {
       left: 5px;
     }
@@ -199,4 +188,659 @@ ui bootstrap tweaks
   white-space: nowrap;
 }
 
+.fw-200 {
+  font-weight: 200;
+}
+.fw-300 {
+  font-weight: 300;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
+.fw-800 {
+  font-weight: 800;
+}
+.fw-900 {
+  font-weight: 900;
+}
+
+.fs-1e {
+  font-size: 1rem;
+}
+.fs-125e {
+  font-size: 1.25rem;
+}
+.fs-15e {
+  font-size: 1.5rem;
+}
+.fs-175e {
+  font-size: 1.75rem;
+}
+.fs-2e {
+  font-size: 2rem;
+}
+.fs-25e {
+  font-size: 2.5rem;
+}
+.fs-3e {
+  font-size: 3rem;
+}
+.fs-4e {
+  font-size: 4rem;
+}
+.fs-5e {
+  font-size: 5rem;
+}
+
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+
+//INPUTS
+
+.float-label {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  margin-left: 0.5em;
+  font-size: 1.6em;
+  font-weight: 600;
+  opacity: 0.75;
+  color: $mediumdarkfont;
+  transition: transform 0.5s ease-in-out;
+}
+
+.p-float-label label {
+  top: 22%;
+}
+
+.input {
+  background-color: $light5;
+  font-size: 1.5em;
+  color: black;
+  border: 1px solid $darkbg;
+  box-shadow: 1px 1px 0.2em $darkbg, inset 1px 1px 0.2em $lightbg;
+
+  input {
+    height: 2em;
+  }
+}
+
+.input:focus {
+  border-color: $darkbg !important;
+  color: $mediumdarkfont;
+}
+
+//DIALOGS
+
+.p-datepicker {
+  background-color: $lightbg;
+  color: black;
+  border: 1px solid $darkbg;
+  box-shadow: 1px 1px 0.2em $darkbg, inset 1px 1px 0.2em $lightbg;
+}
+
+//BUTTONS
+
+.btn-round {
+  border-top-right-radius: 60%;
+  border-top-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  border-bottom-left-radius: 60%;
+}
+
+.menu_button {
+  background-color: $secondary1;
+  border-left: 15px solid rgba(92, 37, 99, 0.4);
+  border-bottom: 5px solid rgba(92, 37, 99, 0.4);
+  border-right: 3px solid rgba(92, 37, 99, 0.35);
+  border-top: 2px solid rgba(92, 37, 99, 0.3);
+  border-radius: 1em;
+  box-shadow: inset 5px 0px 0.5em rgba(92, 37, 99, 0.2), 5px 5px 0.4em rgba(92, 37, 99, 0.2);
+  color: $darkfont;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.1em;
+  margin: 1em 1em 0em 1em;
+  transition: transform 0.5s ease-in-out, text-shadow 0.5s ease-out, color 0.5s, box-shadow 0.3s ease-out;
+}
+
+.menu_button:hover {
+  color: $lightfont9;
+  box-shadow: inset 0em 0em 2em rgba(92, 37, 99, 0.4), inset 0em 0em 1em rgba(92, 37, 99, 0.3), 5px 5px 0.4em rgba(92, 37, 99, 0.2);
+  text-shadow: 1px 1px 2px rgba(92, 37, 99, 0.7);
+  transform: translateY(-0.5em);
+}
+
+.table_button {
+  background-color: $secondary1;
+  border-left: 15px solid rgba(92, 37, 99, 0.4);
+  border-bottom: 5px solid rgba(92, 37, 99, 0.4);
+  border-right: 3px solid rgba(92, 37, 99, 0.35);
+  border-top: 2px solid rgba(92, 37, 99, 0.3);
+  border-radius: 1em;
+  box-shadow: inset 5px 0px 0.5em rgba(92, 37, 99, 0.2), 5px 5px 0.4em rgba(92, 37, 99, 0.2);
+  color: $darkfont;
+  font-weight: bold;
+  font-size: 1em;
+  transition: text-shadow 0.5s ease-out, color 0.5s, box-shadow 0.3s ease-out;
+  height: 1.8em;
+}
+
+.table_button:hover {
+  color: $lightfont9;
+  box-shadow: inset 0em 0em 2em rgba(92, 37, 99, 0.4), inset 0em 0em 1em rgba(92, 37, 99, 0.3), 5px 5px 0.4em rgba(92, 37, 99, 0.2);
+  text-shadow: 1px 1px 2px rgba(92, 37, 99, 0.7);
+}
+
+.table_entity-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  font-size: 1.2em;
+  column-gap: 1.5em;
+  line-height: 2em;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.table_entity-details dt {
+  text-align: right;
+  float: left;
+  overflow: hidden;
+  clear: both;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid $primary5;
+  margin: 0;
+}
+
+.table_entity-details dd {
+  text-align: left;
+  float: right;
+  overflow: hidden;
+  clear: left;
+  text-overflow: ellipsis;
+  margin: 0;
+  align-items: center;
+}
+
+//DIALOGS
+
+.modal-dialog {
+  position: fixed;
+  top: -100%;
+  left: -100%;
+  padding: 200%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.modal-dialog::backdrop {
+  background-color: #000;
+}
+
+//CONTAINERS
+
+.frc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.fcc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dialog-text {
+  font-size: 1.2em;
+  color: black;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 960px) {
+  button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+:host ::ng-deep {
+  .p-toast-message-custom {
+    background-color: #e1cfe7;
+    border: solid #8a427a;
+    border-width: 0 0 0 6px;
+    color: #2c1e30;
+    .p-toast-icon-close {
+      color: #2c1e30;
+    }
+  }
+}
+
+// ACCORDION
+
+.p-accordion {
+  padding: 1em;
+}
+
+.p-accordion-header {
+  border-bottom: 1px solid $darkbg;
+  color: $darkbg;
+  font-size: 1.5em;
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+.p-accordion-content {
+  border-bottom: 1px solid $darkbg5;
+  color: $darkbg;
+  font-size: 1em !important;
+  font-weight: 600;
+  padding: 0.5em;
+}
+
+// ENTITIES
+
+.entity-header-container {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  margin-bottom: -3em;
+  text-align: center;
+}
+
+.entity-header {
+  font-size: 3rem;
+  font-weight: 600;
+  color: $darkbg;
+  margin-left: 0.3em;
+}
+
+.entity-id-shadow {
+  color: rgba(150, 80, 150, 0.2);
+  font-size: 6em;
+  font-weight: 900;
+  margin-left: -0.2em;
+  margin-top: -0.5em;
+}
+
+// BACKGROUND
+
+// ANIMATIONS
+
+@keyframes move {
+  0% {
+    left: 1.05em;
+  }
+  1% {
+    left: 1.1em;
+  }
+  2% {
+    left: 1.15em;
+  }
+  3% {
+    left: 1.2em;
+  }
+  4% {
+    left: 1.25em;
+  }
+  5% {
+    left: 1.3em;
+  }
+  6% {
+    left: 1.35em;
+  }
+  7% {
+    left: 1.4em;
+  }
+  8% {
+    left: 1.45em;
+  }
+  9% {
+    left: 1.5em;
+  }
+  10% {
+    left: 1.55em;
+  }
+  11% {
+    left: 1.6em;
+  }
+  12% {
+    left: 1.65em;
+  }
+  13% {
+    left: 1.7em;
+  }
+  14% {
+    left: 1.75em;
+  }
+  15% {
+    left: 1.8em;
+  }
+  16% {
+    left: 1.85em;
+  }
+  17% {
+    left: 1.9em;
+  }
+  18% {
+    left: 1.95em;
+  }
+  19% {
+    left: 2em;
+  }
+  20% {
+    left: 2.05em;
+  }
+  21% {
+    left: 2.1em;
+  }
+  22% {
+    left: 2.15em;
+  }
+  23% {
+    left: 2.2em;
+  }
+  24% {
+    left: 2.25em;
+  }
+  25% {
+    left: 2.3em;
+  }
+  26% {
+    left: 2.35em;
+  }
+  27% {
+    left: 2.4em;
+  }
+  28% {
+    left: 2.45em;
+  }
+  29% {
+    left: 2.5em;
+  }
+  30% {
+    left: 2.55em;
+  }
+  31% {
+    left: 2.6em;
+  }
+  32% {
+    left: 2.65em;
+  }
+  33% {
+    left: 2.7em;
+  }
+  34% {
+    left: 2.75em;
+  }
+  35% {
+    left: 2.8em;
+  }
+  36% {
+    left: 2.85em;
+  }
+  37% {
+    left: 2.9em;
+  }
+  38% {
+    left: 2.95em;
+  }
+  39% {
+    left: 3em;
+  }
+  40% {
+    left: 3.05em;
+  }
+  41% {
+    left: 3.1em;
+  }
+  42% {
+    left: 3.15em;
+  }
+  43% {
+    left: 3.2em;
+  }
+  44% {
+    left: 3.25em;
+  }
+  45% {
+    left: 3.3em;
+  }
+  46% {
+    left: 3.35em;
+  }
+  47% {
+    left: 3.4em;
+  }
+  48% {
+    left: 3.45em;
+  }
+  49% {
+    left: 3.5em;
+  }
+  50% {
+    left: 3.55em;
+  }
+  51% {
+    left: 3.5em;
+  }
+  52% {
+    left: 3.45em;
+  }
+  53% {
+    left: 3.4em;
+  }
+  54% {
+    left: 3.35em;
+  }
+  55% {
+    left: 3.3em;
+  }
+  56% {
+    left: 3.25em;
+  }
+  57% {
+    left: 3.2em;
+  }
+  58% {
+    left: 3.15em;
+  }
+  59% {
+    left: 3.1em;
+  }
+  60% {
+    left: 3.05em;
+  }
+  61% {
+    left: 3em;
+  }
+  62% {
+    left: 2.95em;
+  }
+  63% {
+    left: 2.9em;
+  }
+  64% {
+    left: 2.85em;
+  }
+  65% {
+    left: 2.8em;
+  }
+  66% {
+    left: 2.75em;
+  }
+  67% {
+    left: 2.7em;
+  }
+  68% {
+    left: 2.65em;
+  }
+  69% {
+    left: 2.6em;
+  }
+  70% {
+    left: 2.55em;
+  }
+  71% {
+    left: 2.5em;
+  }
+  72% {
+    left: 2.45em;
+  }
+  73% {
+    left: 2.4em;
+  }
+  74% {
+    left: 2.35em;
+  }
+  75% {
+    left: 2.3em;
+  }
+  76% {
+    left: 2.25em;
+  }
+  77% {
+    left: 2.2em;
+  }
+  78% {
+    left: 2.15em;
+  }
+  79% {
+    left: 2.1em;
+  }
+  80% {
+    left: 2.05em;
+  }
+  81% {
+    left: 2em;
+  }
+  82% {
+    left: 1.95em;
+  }
+  83% {
+    left: 1.9em;
+  }
+  84% {
+    left: 1.85em;
+  }
+  85% {
+    left: 1.8em;
+  }
+  86% {
+    left: 1.75em;
+  }
+  87% {
+    left: 1.7em;
+  }
+  88% {
+    left: 1.65em;
+  }
+  89% {
+    left: 1.6em;
+  }
+  90% {
+    left: 1.55em;
+  }
+  91% {
+    left: 1.5em;
+  }
+  92% {
+    left: 1.45em;
+  }
+  93% {
+    left: 1.4em;
+  }
+  94% {
+    left: 1.35em;
+  }
+  95% {
+    left: 1.3em;
+  }
+  96% {
+    left: 1.25em;
+  }
+  97% {
+    left: 1.2em;
+  }
+  98% {
+    left: 1.15em;
+  }
+  99% {
+    left: 1.1em;
+  }
+  100% {
+    left: 1.05em;
+  }
+}
+
+.p-tooltip {
+  background-color: $secondary1;
+  border: 1px solid $primary;
+}
+
+.p-tooltip-text {
+  color: $primary1;
+  font-weight: bold;
+}
+
+.banner-container {
+  background-color: $secondary1;
+  width: 50%;
+  border-bottom-left-radius: 20em;
+  border-bottom-right-radius: 20em;
+  padding-bottom: 1em;
+  margin-top: -0.5em;
+  box-shadow: 0 1px 5px $primary1;
+}
+
+.lpurple01-bg {
+  background-color: $lpurple01;
+}
+
+.lolive01-bg {
+  background-color: $lolive01;
+}
+
+.lpink01-bg {
+  background-color: $lpink01;
+}
+
+.lred01-bg {
+  background-color: $lred01;
+}
+
+.lorange01-bg {
+  background-color: $lorange01;
+}
+
+.lyellow01-bg {
+  background-color: $lyellow01;
+}
+
+.lpurple03-bs {
+  box-shadow: 0 1px 500px $lpurple03;
+}
+
+.lolive03-bs {
+  box-shadow: 0 -1px 500px $lolive03;
+}
+
+@function bt($color, $width) {
+  @return $width px solid $color;
+}

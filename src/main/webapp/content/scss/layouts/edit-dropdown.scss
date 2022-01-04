@@ -1,0 +1,30 @@
+@import '/src/main/webapp/content/scss/bootstrap-variables';
+
+:host ::ng-deep .p-dropdown {
+  background-color: $light5;
+  color: black;
+  border: 1px solid $darkbg;
+  box-shadow: 1px 1px 0.2em $darkbg, inset 1px 1px 0.2em $lightbg;
+  width: 400px;
+}
+
+:host ::ng-deep .p-dropdown-label {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin: 0 0.1em;
+}
+
+:host ::ng-deep .p-dropdown-panel {
+  background-color: $lightbg;
+  color: black;
+  border: 1px solid $darkbg;
+  box-shadow: 1px 1px 0.2em $darkbg, inset 1px 1px 0.2em $lightbg;
+}
+
+:host ::ng-deep .p-dropdown-item {
+  font-size: 1.2em;
+}
+
+:host ::ng-deep p-dropdownitem:nth-child(2n-1) > .p-dropdown-item {
+  background-color: $secondary1;
+}

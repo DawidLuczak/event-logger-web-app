@@ -1,18 +1,66 @@
-/*
-* Bootstrap overrides https://getbootstrap.com/docs/4.0/getting-started/theming/
-* All values defined in bootstrap source
-* https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss can be overwritten here
-* Make sure not to add !default to values here
-*/
+$primary: rgba(109, 84, 199, 0.7);
+$primary3: rgba(109, 84, 199, 0.3);
+$primary5: rgba(109, 84, 199, 0.5);
+$primary6: rgba(109, 84, 199, 0.6);
+$primary7: rgba(109, 84, 199, 0.7);
+$primary8: rgba(109, 84, 199, 0.8);
+$primary9: rgba(109, 84, 199, 0.9);
+$primary1: rgba(109, 84, 199, 1);
 
-// Colors:
-// Grayscale and brand colors for use across Bootstrap.
+$secondary5: rgba(255, 192, 203, 0.5);
+$secondary: rgba(255, 192, 203, 0.7);
+$secondary1: rgba(255, 192, 203, 1);
 
-$primary: #3e8acc;
-$success: #28a745;
-$info: #17a2b8;
-$warning: #ffc107;
-$danger: #dc3545;
+$lprim: rgb(149, 98, 226);
+
+//
+// COLORS
+//
+
+// GREEN
+$activeHighlight5: rgb(0, 175, 15, 0.5);
+
+$lolive01: rgba(50, 150, 100, 0.1);
+$lolive02: rgba(50, 150, 100, 0.2);
+$lolive03: rgba(50, 150, 100, 0.3);
+$lolive05: rgba(50, 150, 100, 0.5);
+
+$lpink01: rgba(100, 50, 150, 0.1);
+$lpink02: rgba(100, 50, 150, 0.2);
+
+$lpurple01: rgba(50, 150, 200, 0.1);
+$lpurple02: rgba(50, 150, 200, 0.2);
+$lpurple03: rgba(50, 150, 200, 0.3);
+$lpurple05: rgba(50, 150, 200, 0.5);
+
+$lorange01: rgba(255, 166, 0, 0.1);
+$lorange02: rgba(255, 166, 0, 0.2);
+
+$lyellow01: rgba(255, 238, 0, 0.1);
+$lyellow02: rgba(255, 238, 0, 0.2);
+
+$lred01: rgba(255, 0, 0, 0.1);
+
+$lightbg: rgba(255, 236, 236, 0.95);
+$darkbg: rgba(89, 53, 173, 0.95);
+$darkbg5: rgba(89, 53, 173, 0.5);
+$darkBorder: rgba(89, 53, 173, 1);
+
+$darkfont75: rgba(92, 37, 99, 0.75);
+$darkfont: rgb(65, 20, 116);
+$mediumdarkfont: rgb(66, 0, 141);
+
+$lightfont: rgba(255, 227, 227, 1);
+$lightfont9: rgba(255, 227, 227, 0.9);
+$light9: rgba(255, 255, 255, 0.9);
+$light8: rgba(255, 255, 255, 0.8);
+$light7: rgba(255, 255, 255, 0.7);
+$light6: rgba(255, 255, 255, 0.6);
+$light5: rgba(255, 255, 255, 0.5);
+$light4: rgba(255, 255, 255, 0.4);
+$light3: rgba(255, 255, 255, 0.3);
+$light2: rgba(255, 255, 255, 0.2);
+$light1: rgba(255, 255, 255, 0.1);
 
 // Options:
 // Quickly modify global styling by enabling or disabling optional features.
