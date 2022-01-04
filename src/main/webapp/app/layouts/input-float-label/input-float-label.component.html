@@ -1,0 +1,13 @@
+<span class="p-float-label">
+  <input
+    id="name"
+    class="ng-invalid ng-dirty input"
+    [style]="{ width: width }"
+    type="text"
+    [(ngModel)]="text"
+    (ngModelChange)="change($event)"
+    pInputText
+    [maxlength]="maxLength"
+  />
+  <label for="name" class="float-label" [style]="{ visibility: text && text.length > 0 ? 'collapse' : 'visible' }">{{ title }} </label>
+</span>
