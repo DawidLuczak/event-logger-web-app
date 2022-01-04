@@ -1,0 +1,7 @@
+<p-tabView [scrollable]="true" (onClose)="closeTab($event)">
+  <p-tabPanel [header]="tab.header" *ngFor="let tab of tabPanelService.tabs; let i = index" [selected]="i == 0" [closable]="true">
+    <ng-template pTemplate="content">
+      {{ tab.content }}
+    </ng-template>
+  </p-tabPanel>
+</p-tabView>
