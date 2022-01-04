@@ -1,0 +1,40 @@
+<div class="p-fluid p-formgrid">
+  <div class="p-field p-col-12 p-md-6 mb-2">
+    <jhi-input-float-label title="First name" width="400px" [text]="firstName" (changeText)="firstName = $event"></jhi-input-float-label>
+  </div>
+  <div class="p-field p-col-12 p-md-6 mb-2">
+    <jhi-input-float-label title="Last name" width="400px" [text]="lastName" (changeText)="lastName = $event"></jhi-input-float-label>
+  </div>
+  <div class="p-field p-col-12 p-md-6 mb-2">
+    <jhi-input-float-label title="Email" width="400px" [text]="email" (changeText)="email = $event"></jhi-input-float-label>
+  </div>
+  <div class="p-field p-col-12 p-md-6 mb-2">
+    <label for="phoneNumber">Phone number</label>
+    <p-inputNumber inputId="phoneNumber" [(ngModel)]="phoneNumber"> </p-inputNumber>
+    <!-- <jhi-input-float-label
+      title="Phone number"
+      width="400px"
+      [text]="phoneNumber"
+      (changeText)="phoneNumber = $event"
+    ></jhi-input-float-label> -->
+  </div>
+  <div class="p-field p-col-12 p-md-6 mb-1">
+    <jhi-textarea-float-label title="Note" width="400px" [text]="note" (changeText)="note = $event"></jhi-textarea-float-label>
+  </div>
+  <div class="d-flex p-field p-col-12 p-md-6 justify-content-center mb-2">
+    <p-dropdown
+      [options]="communities"
+      [(ngModel)]="selectedCommunity"
+      optionLabel="title"
+      placeholder="Wybierz community"
+      class="p-dropdown p-dropdown-open p-dropdown-items"
+    ></p-dropdown>
+  </div>
+  <div class="p-field p-col-12 p-md-6 mb-1 d-flex justify-content-center">
+    <jhi-dialog-action-buttons
+      [cancel]="cancel()"
+      [confirm]="confirm()"
+      style="position: absolute; bottom: 2em"
+    ></jhi-dialog-action-buttons>
+  </div>
+</div>

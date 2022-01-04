@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-employee-heading" data-cy="EmployeeCreateUpdateHeading" jhiTranslate="eventloggerApp.employee.home.createOrEditLabel">
+        Create or edit a Employee
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="eventloggerApp.employee.firstName" for="field_firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
+          <div *ngIf="editForm.get('firstName')!.invalid && (editForm.get('firstName')!.dirty || editForm.get('firstName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('firstName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="eventloggerApp.employee.lastName" for="field_lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" id="field_lastName" data-cy="lastName" formControlName="lastName" />
+          <div *ngIf="editForm.get('lastName')!.invalid && (editForm.get('lastName')!.dirty || editForm.get('lastName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lastName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="eventloggerApp.employee.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="eventloggerApp.employee.phoneNumber" for="field_phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="eventloggerApp.employee.hireDate" for="field_hireDate">Hire Date</label>
+          <div class="d-flex">
+            <input
+              id="field_hireDate"
+              data-cy="hireDate"
+              type="datetime-local"
+              class="form-control"
+              name="hireDate"
+              formControlName="hireDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="eventloggerApp.employee.hours" for="field_hours">Hours</label>
+          <input type="number" class="form-control" name="hours" id="field_hours" data-cy="hours" formControlName="hours" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="eventloggerApp.employee.note" for="field_note">Note</label>
+          <input type="text" class="form-control" name="note" id="field_note" data-cy="note" formControlName="note" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="eventloggerApp.employee.community" for="field_community">Community</label>
+          <select class="form-control" id="field_community" data-cy="community" name="community" formControlName="community">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="communityOption.id === editForm.get('community')!.value?.id ? editForm.get('community')!.value : communityOption"
+              *ngFor="let communityOption of communitiesSharedCollection; trackBy: trackCommunityById"
+            >
+              {{ communityOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<p-table [value]="employees" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th jhiTranslate="eventloggerApp.employee.fullName"></th>
+      <th jhiTranslate="eventloggerApp.employee.email"></th>
+      <th jhiTranslate="eventloggerApp.employee.phoneNumber"></th>
+      <th jhiTranslate="eventloggerApp.employee.note"></th>
+      <th jhiTranslate="eventloggerApp.employee.hireDate"></th>
+      <th jhiTranslate="eventloggerApp.employee.community"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-employee>
+    <tr>
+      <td>
+        <a [routerLink]="['/employee', employee.id, 'employee-view']">{{ employee.firstName + ' ' + employee.lastName }}</a>
+      </td>
+      <td>{{ employee.email }}</td>
+      <td>{{ employee.phoneNumber }}</td>
+      <td>{{ employee.note }}</td>
+      <td>{{ employee.hireDate | date: 'shortDate' }}</td>
+      <td>
+        <a [routerLink]="['/community', employee.community?.id, 'community-view']">{{ employee.community?.title }}</a>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
