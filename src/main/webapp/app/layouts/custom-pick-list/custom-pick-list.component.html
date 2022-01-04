@@ -1,0 +1,25 @@
+<p-pickList
+  [source]="source"
+  [target]="target"
+  [responsive]="true"
+  [filterBy]="filter"
+  sourceHeader="Plany dostępne"
+  targetHeader="Plany przyłączone"
+  [dragdrop]="true"
+>
+  <ng-template pTemplate="sourceHeader">
+    <div class="p-picklist-header">
+      {{ sourceHeader }}
+    </div>
+  </ng-template>
+  <ng-template pTemplate="targetHeader">
+    <div class="p-picklist-header">
+      {{ targetHeader }}
+    </div>
+  </ng-template>
+  <ng-template let-item pTemplate="item">
+    <div class="p-picklist-text">
+      {{ item.title }}
+    </div>
+  </ng-template>
+</p-pickList>
