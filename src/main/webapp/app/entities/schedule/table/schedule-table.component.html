@@ -1,0 +1,32 @@
+<p-table [value]="schedules">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>
+        <span jhiTranslate="eventloggerApp.schedule.title"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.schedule.description"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.schedule.pensum"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.schedule.events"></span>
+      </th>
+      <th>
+        <span jhiTranslate="eventloggerApp.schedule.employees"></span>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-schedule>
+    <tr>
+      <td>
+        <a [routerLink]="['/schedule', schedule.id, 'schedule-view']">{{ schedule.title }}</a>
+      </td>
+      <td>{{ schedule.description }}</td>
+      <td>{{ schedule.pensum }}</td>
+      <td>{{ schedule.events?.length }}</td>
+      <td>{{ schedule.employees?.length }}</td>
+    </tr>
+  </ng-template>
+</p-table>

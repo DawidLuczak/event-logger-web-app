@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="DepartmentHeading">
+    <div class="d-flex justify-content-between">
+      <span jhiTranslate="eventloggerApp.schedule.home.title"></span>
+      <span>
+        <button
+          id="jh-create-entity"
+          data-cy="entityCreateButton"
+          class="btn btn-primary jh-create-entity create-department"
+          [routerLink]="['/schedule', 'week']"
+        >
+          <fa-icon icon="plus"></fa-icon>
+          <span>Stwórz plan z tygodnia</span>
+        </button>
+        <button
+          id="jh-create-entity"
+          data-cy="entityCreateButton"
+          class="btn btn-primary jh-create-entity create-department"
+          (click)="openCreatorDialog()"
+        >
+          <fa-icon icon="plus"></fa-icon>
+          <span jhiTranslate="eventloggerApp.schedule.home.createLabel"> </span>
+        </button>
+      </span>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="schedules?.length === 0">
+    <span jhiTranslate="eventloggerApp.schedule.home.notFound"></span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="schedules && schedules.length > 0">
+    <table class="table table-striped list-table" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort>
+          <th scope="col" jhiSortBy="title">
+            <span jhiTranslate="eventloggerApp.schedule.title"></span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <span jhiTranslate="eventloggerApp.schedule.description"></span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pensum">
+            <span jhiTranslate="eventloggerApp.schedule.pensum"></span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="department">
+            <span jhiTranslate="eventloggerApp.schedule.department"></span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="events">
+            <span jhiTranslate="eventloggerApp.schedule.events"></span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+        </tr>
+      </thead>
+      <tbody infinite-scroll>
+        <tr *ngFor="let schedule of schedules; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/schedule', schedule.id, 'schedule-view']">{{ schedule.title }}</a>
+          </td>
+          <td>{{ schedule.description }}</td>
+          <td>{{ schedule.pensum }}</td>
+          <td>
+            <a [routerLink]="['/department', schedule.department?.id, 'department-view']">{{ schedule.department?.title }}</a>
+          </td>
+          <td>{{ schedule.events?.length }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/schedule', schedule.id, 'schedule-view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view"></span>
+              </button>
+
+              <button type="submit" class="btn btn-primary btn-sm" data-cy="entityEditButton" (click)="openEditDialog(schedule)">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit"></span>
+              </button>
+
+              <button type="submit" (click)="delete(schedule)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete"></span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<jhi-backdrop *ngIf="isModalDialogOpen"></jhi-backdrop>

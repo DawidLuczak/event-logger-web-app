@@ -1,0 +1,113 @@
+@import '../../../../content/scss/bootstrap-variables';
+
+// th {
+//   padding: -1px;
+// }
+
+td {
+  border: 1px solid black;
+}
+
+// tr {
+//   border: 1px solid $primary;
+// }
+
+.header-columns-row {
+  border: 1px solid $darkbg;
+  background-color: $secondary1;
+  display: flex;
+}
+
+.header-column {
+  border: 1px solid black;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.employees-row-header-column {
+  border: 1px solid black;
+}
+
+.header-columns-vertical {
+  border: 2px solid black;
+  font-weight: bold;
+  max-width: 101px;
+}
+
+.event {
+  border-right: 2px solid $darkBorder;
+  border-left: 2px solid $darkBorder;
+  background-color: $secondary;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+}
+
+.employee {
+  height: 28px;
+  overflow: hidden;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.time-header-column {
+  border: 1px solid black;
+  max-width: 100px;
+  min-width: 100px;
+}
+
+.selected-column {
+  border: 1px solid $darkBorder;
+  background-color: $primary5;
+  padding: -2px;
+}
+
+.table-caption {
+  background-color: $primary;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.caption-input {
+  background-color: transparent;
+  height: 100%;
+  color: white;
+  min-height: 100px;
+  width: 100%;
+}
+
+::ng-deep .p-inputnumber {
+  background-color: transparent;
+  border: none;
+  height: 2.8em;
+}
+
+// ::ng-deep .p-inputnumber-horizontal {
+//   background-color: $secondary;
+//   border: 1px solid $primary;
+//   width: 2em;
+// }
+
+// ::ng-deep .p-inputnumber-stacked {
+//   background-color: $secondary;
+//   border: 1px solid $primary;
+// }
+
+::ng-deep .p-inputnumber-input {
+  background-color: $secondary;
+  border: 2px solid $primary;
+  border-radius: 40%;
+  width: 2.5em;
+  font-weight: bold;
+  padding-left: 0.5em;
+}
+
+::ng-deep .p-inputnumber-button {
+  background-color: $secondary;
+  border: 2px solid $primary;
+  border-radius: 40%;
+}

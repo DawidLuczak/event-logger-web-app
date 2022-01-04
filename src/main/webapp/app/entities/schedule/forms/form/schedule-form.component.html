@@ -1,0 +1,59 @@
+<div class="p-fluid p-formgrid">
+  <div class="p-field p-col-12 p-md-6 mb-2">
+    <jhi-input-float-label title="Nazwa" width="400px" [text]="title" (changeText)="title = $event"></jhi-input-float-label>
+  </div>
+  <div class="p-field p-col-12 p-md-6 mb-1">
+    <jhi-textarea-float-label
+      title="Opis"
+      width="400px"
+      [text]="description"
+      (changeText)="description = $event"
+    ></jhi-textarea-float-label>
+  </div>
+  <div class="p-field p-col-12 p-md-6 mb-1">
+    <p-inputNumber [(ngModel)]="pensum" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100"> </p-inputNumber>
+  </div>
+  <div class="p-field p-col-12 p-md-6 mb-1">
+    <p-dropdown
+      #departmentDropdown
+      [options]="departments"
+      [(ngModel)]="selectedDepartment"
+      [optionLabel]="'title'"
+      placeholder="Wybierz department"
+    ></p-dropdown>
+  </div>
+  <div class="d-flex p-field p-col-12 p-md-6 mb-1 justify-content-center" *ngIf="showCalendarRange">
+    <p-calendar
+      class="mr-1 input"
+      [(ngModel)]="calendarRange.startDate"
+      [showTime]="true"
+      hourFormat="24"
+      [maxDate]="calendarRange.endDate"
+      [showButtonBar]="true"
+      [showWeek]="true"
+      [yearNavigator]="true"
+      [monthNavigator]="true"
+      yearRange="2020:2030"
+    ></p-calendar>
+    <p-calendar
+      class="ml-1 input"
+      [(ngModel)]="calendarRange.endDate"
+      [showTime]="true"
+      hourFormat="24"
+      [minDate]="calendarRange.startDate"
+      [showButtonBar]="true"
+      [disabledDays]="[0, 5]"
+      [showWeek]="true"
+      [yearNavigator]="true"
+      [monthNavigator]="true"
+      yearRange="2020:2030"
+    ></p-calendar>
+  </div>
+  <div class="p-field p-col-12 p-md-6 mb-1 d-flex justify-content-center">
+    <jhi-dialog-action-buttons
+      [cancel]="cancel()"
+      [confirm]="confirm()"
+      style="position: absolute; bottom: 2em"
+    ></jhi-dialog-action-buttons>
+  </div>
+</div>
