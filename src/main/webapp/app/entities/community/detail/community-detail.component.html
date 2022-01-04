@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-12">
+    <div *ngIf="community">
+      <div class="entity-header-container">
+        <div class="entity-id-shadow">{{ community.id }}</div>
+        <div class="entity-header">{{ community.title }}</div>
+        <div style="position: absolute; right: 1em; top: 1em">
+          <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+            <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+          </button>
+          <button type="button" (click)="setEditMode(!isEditMode)" class="btn btn-primary">
+            <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+          </button>
+        </div>
+      </div>
+      <hr style="margin-bottom: -1em" />
+      <jhi-alert-error></jhi-alert-error>
+      <jhi-alert></jhi-alert>
+      <p-accordion class="accordion" [multiple]="true">
+        <p-accordionTab header="Szczegóły" [selected]="true">
+          <dl class="table_entity-details">
+            <dt>
+              <span jhiTranslate="eventloggerApp.community.title"></span>
+            </dt>
+            <dd>
+              <span>{{ community.title }}</span>
+            </dd>
+            <dt>
+              <span jhiTranslate="eventloggerApp.community.description">Description</span>
+            </dt>
+            <dd>
+              <span>{{ community.description }}</span>
+            </dd>
+          </dl>
+        </p-accordionTab>
+        <p-accordionTab header="Employees">
+          <jhi-employee-table [employees]="community.employees!"></jhi-employee-table>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>
