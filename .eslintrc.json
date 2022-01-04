@@ -36,6 +36,7 @@
         "style": "camelCase"
       }
     ],
+    "@angular-eslint/no-empty-lifecycle-method": "warn",
     "@angular-eslint/relative-url-prefix": "error",
     "@typescript-eslint/ban-types": [
       "error",
@@ -46,7 +47,7 @@
         }
       }
     ],
-    "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+    "@typescript-eslint/explicit-function-return-type": ["warn"],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/member-ordering": [
       "error",
@@ -68,12 +69,14 @@
         ]
       }
     ],
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-parameter-properties": ["warn", { "allows": ["public", "private", "protected"] }],
     "@typescript-eslint/no-shadow": ["error"],
-    "@typescript-eslint/no-unnecessary-condition": "error",
+    "@typescript-eslint/no-unnecessary-condition": "warn",
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-call": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
@@ -86,7 +89,7 @@
     "guard-for-in": "error",
     "no-bitwise": "error",
     "no-caller": "error",
-    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-console": ["warn", { "allow": ["debug", "error"] }],
     "no-eval": "error",
     "no-labels": "error",
     "no-new": "error",

@@ -42,6 +42,8 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["pl", "en"],
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "entities": ["Department", "Schedule", "Event", "Employee", "Community"],
+    "lastLiquibaseTimestamp": 1637089981000
   }
 }

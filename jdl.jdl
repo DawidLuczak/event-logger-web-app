@@ -1,0 +1,62 @@
+
+// an ignored comment
+/** not an ignored comment */
+
+entity Department {
+	title String required
+    description String
+}
+
+entity Schedule {
+	title String required
+    description String
+}
+
+entity Event {
+	title String required
+	description String
+    startDate Instant required
+    endDate Instant required
+    type Integer required
+    salary Integer required
+}
+
+entity Employee {
+	firstName String required
+	lastName String required
+	email String 
+	phoneNumber String
+	hireDate Instant
+	hours Integer
+    note String
+}
+
+entity Community {
+	title String required
+    description String
+}
+
+relationship OneToMany {
+ 	Department{schedules} to Schedule{department}
+    Community{employees} to Employee{community}
+    Employee to Event
+}
+
+relationship ManyToOne {
+	Event{schedule} to Schedule{events}
+}
+
+
+
+// Set pagination options
+paginate Event, Employee, Schedule, Community, Department with infinite-scroll
+
+
+// Use Data Transfer Objects (DTO)
+dto all with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+

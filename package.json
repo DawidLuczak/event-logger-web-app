@@ -74,6 +74,8 @@
     "packaging": "jar"
   },
   "dependencies": {
+    "@angular/animations": "^12.2.10",
+    "@angular/cdk": "^13.1.0",
     "@angular/common": "12.2.10",
     "@angular/compiler": "12.2.10",
     "@angular/core": "12.2.10",
@@ -88,15 +90,18 @@
     "@ng-bootstrap/ng-bootstrap": "10.0.0",
     "@ngx-translate/core": "13.0.0",
     "@ngx-translate/http-loader": "6.0.0",
+    "angular-animations": "^0.11.0",
+    "angular-resize-event": "^3.0.2",
     "bootstrap": "4.6.0",
-    "dayjs": "1.10.7",
+    "dayjs": "^1.10.7",
+    "moment": "^2.29.1",
     "ngx-infinite-scroll": "10.0.1",
     "ngx-webstorage": "8.0.0",
+    "primeicons": "^5.0.0",
+    "primeng": "^12.2.2",
     "rxjs": "6.6.7",
-    "sockjs-client": "1.5.0",
     "swagger-ui-dist": "3.52.5",
     "tslib": "2.3.1",
-    "webstomp-client": "1.2.6",
     "zone.js": "0.11.4"
   },
   "devDependencies": {
@@ -109,7 +114,6 @@
     "@angular/service-worker": "12.2.10",
     "@types/jest": "27.0.2",
     "@types/node": "16.11.1",
-    "@types/sockjs-client": "1.5.0",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
     "browser-sync": "2.27.5",
