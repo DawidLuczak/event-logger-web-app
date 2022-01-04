@@ -1,0 +1,38 @@
+{
+  "name": "Schedule",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "department",
+      "otherEntityRelationshipName": "schedules",
+      "relationshipName": "department"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "event",
+      "otherEntityRelationshipName": "schedule",
+      "relationshipName": "events"
+    }
+  ],
+  "entityTableName": "schedule",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211116191258"
+}
