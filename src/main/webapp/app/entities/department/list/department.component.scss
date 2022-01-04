@@ -1,0 +1,15 @@
+@import '../../../../content/scss/global.scss';
+@import '/src/main/webapp/content/scss/layouts/list-table.scss';
+
+.table-header {
+  background-color: $secondary1;
+}
+
+.table-content {
+  background-color: $secondary5;
+}
+
+.table-caption {
+  background-color: $lprim;
+  height: 50px;
+}

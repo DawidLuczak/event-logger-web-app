@@ -1,0 +1,138 @@
+<div>
+  <h2 id="page-heading" data-cy="DepartmentHeading">
+    <div class="d-flex justify-content-between">
+      <span jhiTranslate="eventloggerApp.department.home.title">Departments</span>
+      <span>
+        <button
+          id="jh-create-entity"
+          data-cy="entityCreateButton"
+          class="btn btn-primary jh-create-entity create-department"
+          (click)="openCreatorDialog()"
+        >
+          <fa-icon icon="plus"></fa-icon>
+          <span jhiTranslate="eventloggerApp.department.home.createLabel"> Create a new Department </span>
+        </button>
+      </span>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="departments?.length === 0">
+    <span jhiTranslate="eventloggerApp.department.home.notFound">No departments found</span>
+  </div>
+
+  <p-table
+    #table
+    class="table table-striped list-table"
+    dataKey="id"
+    [value]="departments"
+    [columns]="tableColumns"
+    [totalRecords]="totalRecords"
+    [lazy]="true"
+    [scrollable]="true"
+    [virtualScroll]="true"
+    [scrollHeight]="calculateTableScrollHeight(0.5) + 'px'"
+    [rows]="rows"
+    [virtualRowHeight]="50"
+    [rowHover]="true"
+    [resizableColumns]="true"
+    [loading]="loading"
+    [scrollTop]="0"
+    (onLazyLoad)="loadMoreLazy($event)"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex table-caption">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <!-- <input pInputText type="text" (input)="table.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" /> -->
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr class="table-header">
+        <th *ngFor="let col of columns" pResizableColumn>
+          <ng-container>
+            {{ col.header }}
+          </ng-container>
+        </th>
+      </tr>
+      <tr>
+        <th *ngFor="let col of columns">
+          <input type="text" pInputText (input)="loadFilteredRecords($event, 0)" [placeholder]="col.header" />
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-department>
+      <tr style="height: 50px">
+        <td>
+          {{ department.title }}
+        </td>
+        <td>
+          {{ department.description }}
+        </td>
+        <td>
+          {{ department.schedules?.length }}
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5">No departments found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<!--
+  <div class="table-responsive" id="entities" *ngIf="departments && departments.length > 0">
+    <table class="table table-striped list-table" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.department.title"></span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.department.description"></span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.department.schedules"></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let department of departments; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/department', department.id, 'department-view']">{{ department.title }}</a>
+          </td>
+          <td>{{ department.description }}</td>
+          <td>{{ department.schedules?.length }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+                type="submit"
+                [routerLink]="['/department', department.id, 'department-view']"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button class="btn btn-primary btn-sm" data-cy="entityEditButton" type="submit" (click)="openEditDialog(department)">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button class="btn btn-danger btn-sm" data-cy="entityDeleteButton" type="submit" (click)="delete(department)">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+<jhi-backdrop *ngIf="isModalDialogOpen"></jhi-backdrop>
