@@ -1,0 +1,9 @@
+@import '../bootstrap-variables';
+
+tr {
+  border: 1px solid $primary;
+}
+
+tr:nth-child(2n) {
+  background-color: $secondary;
+}

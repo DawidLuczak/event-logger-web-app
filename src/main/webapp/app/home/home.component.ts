@@ -25,10 +25,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(account => (this.account = account));
   }
 
-  login(): void {
-    this.router.navigate(['/login']);
-  }
-
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();

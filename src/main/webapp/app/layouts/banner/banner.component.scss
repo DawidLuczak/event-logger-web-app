@@ -1,0 +1,64 @@
+@import '/src/main/webapp/content/scss/bootstrap-variables';
+
+$duration: 5s;
+$text-color: rgba(255, 121, 121, 0.4);
+$bgr-color: #333;
+
+.chrome {
+  font-size: 5vw;
+  margin: 0;
+  font-weight: bold;
+  background: rgba(218, 159, 159, 0) -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0;
+  background-image: -webkit-linear-gradient(
+    -45deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 0, 0, 0.3) 50%,
+    transparent 65%,
+    transparent 100%
+  );
+  color: $text-color;
+  -webkit-background-clip: text;
+  -webkit-background-size: 50vh;
+  -webkit-animation-name: shine;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 3px 2px 2px rgba(68, 149, 255, 0.6), 5px 5px 1px $secondary, 6px 6px 1px $primary, 0 0 50px white;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0%;
+  }
+  10% {
+    background-position: 10%;
+  }
+  20% {
+    background-position: 20%;
+  }
+  30% {
+    background-position: 30%;
+  }
+  40% {
+    background-position: 40%;
+  }
+  50% {
+    background-position: 50%;
+  }
+  60% {
+    background-position: 60%;
+  }
+  70% {
+    background-position: 70%;
+  }
+  80% {
+    background-position: 80%;
+  }
+  90% {
+    background-position: 90%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}

@@ -22,14 +22,39 @@ import { fontAwesomeIcons } from './config/font-awesome-icons';
 import { httpInterceptorProviders } from 'app/core/interceptor/index';
 import { translatePartialLoader, missingTranslationHandler } from './config/translation.config';
 import { MainComponent } from './layouts/main/main.component';
-import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
-import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
+import { DialogService } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputFloatLabelModule } from './layouts/input-float-label/input-float-label.module';
+import { CommunityModule } from './entities/community/community.module';
+import { DepartmentModule } from './entities/department/department.module';
+import { EventModule } from './entities/event/event.module';
+import { BannerModule } from './layouts/banner/banner.module';
+import { DeleteDialogModule } from './layouts/delete-dialog/delete-dialog.module';
+import { NavbarModule } from './layouts/navbar/navbar.module';
+import { TextareaFloatLabelModule } from './layouts/textarea-float-label/textarea-float-label.module';
+import { LoginModule } from './login/login.module';
+import { ToastModule } from 'primeng/toast';
+import { OutMouseClickDirective } from './core/out-mouse-click/out-mouse-click.directive';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   imports: [
+    DragDropModule,
+    CommunityModule,
+    EventModule,
+    DepartmentModule,
+    LoginModule,
+    NavbarModule,
+    BannerModule,
+    ToastModule,
+    DeleteDialogModule,
+    TextareaFloatLabelModule,
+    InputFloatLabelModule,
+    BrowserAnimationsModule,
     BrowserModule,
     SharedModule,
     HomeModule,
@@ -53,12 +78,15 @@ import { ErrorComponent } from './layouts/error/error.component';
     }),
   ],
   providers: [
+    OutMouseClickDirective,
+    DialogService,
+    MessageService,
     Title,
     { provide: LOCALE_ID, useValue: 'pl' },
     { provide: NgbDateAdapter, useClass: NgbDateDayjsAdapter },
     httpInterceptorProviders,
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+  declarations: [MainComponent, ErrorComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent],
 })
 export class AppModule {

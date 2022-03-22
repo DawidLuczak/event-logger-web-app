@@ -1,0 +1,112 @@
+<div>
+  <h2 id="page-heading" data-cy="EmployeeHeading">
+    <div class="d-flex justify-content-between">
+      <span jhiTranslate="eventloggerApp.employee.home.title"></span>
+      <span>
+        <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+          <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+          <span jhiTranslate="eventloggerApp.employee.home.refreshListLabel"></span>
+        </button>
+        <button
+          id="jh-create-entity"
+          data-cy="entityCreateButton"
+          class="btn btn-primary jh-create-entity create-employee"
+          (click)="openCreatorDialog()"
+        >
+          <fa-icon icon="plus"></fa-icon>
+          <span jhiTranslate="eventloggerApp.employee.home.createLabel"></span>
+        </button>
+      </span>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="employees?.length === 0">
+    <span jhiTranslate="eventloggerApp.employee.home.notFound">No departments found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="employees && employees.length > 0">
+    <table class="table table-striped list-table" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.employee.fullName"></span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.employee.phoneNumber"></span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.employee.email"></span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.employee.community"></span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.employee.event"></span>
+          </th>
+          <th scope="col">
+            <span>Łączna liczba godzin</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/employee', employee.id, 'employee-view']">{{ employee.firstName + ' ' + employee.lastName }}</a>
+          </td>
+          <td>
+            <div *ngIf="employee.phoneNumber">
+              {{ employee.phoneNumber }}
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.email">
+              {{ employee.email }}
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.community">
+              <a [routerLink]="['/community', employee.community.id, 'community-view']">{{ employee.community.title }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.events">
+              {{ employee.events.length }}
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employee.events">
+              {{ employee.allHours }}
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+                type="submit"
+                [routerLink]="['/employee', employee.id, 'employee-view']"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button class="btn btn-primary btn-sm" data-cy="entityEditButton" type="submit" (click)="openEditDialog(employee)">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button class="btn btn-danger btn-sm" data-cy="entityDeleteButton" type="submit" (click)="delete(employee)">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<jhi-backdrop *ngIf="isModalDialogOpen"></jhi-backdrop>

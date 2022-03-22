@@ -1,0 +1,25 @@
+@import '/src/main/webapp/content/scss/bootstrap-variables';
+
+.list-table {
+  font-size: 1.1em;
+}
+
+.list-table td {
+  padding: 0;
+}
+
+.list-table tr {
+  border: 1px solid $primary5;
+}
+
+.list-table th {
+  font-size: 1em;
+  margin: 0;
+  padding: 0 0.1em 0.2em 0;
+}
+
+.list-table a {
+  color: $darkfont;
+  font-weight: 400;
+  font-style: italic;
+}

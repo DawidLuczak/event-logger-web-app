@@ -1,0 +1,22 @@
+<p-treeTable [value]="values" [columns]="columns">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+    <tr [ngClass]="rowData.department ? 'parent_node' : 'child_node'">
+      <td *ngFor="let col of columns; let i = index">
+        <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+        <ng-container *ngIf="rowData[col.field] && col.childEntityField; else elseTemplate">
+          {{ rowData[col.field][col.childEntityField] }}
+        </ng-container>
+        <ng-template #elseTemplate>
+          {{ rowData[col.field] }}
+        </ng-template>
+      </td>
+    </tr>
+  </ng-template>
+</p-treeTable>

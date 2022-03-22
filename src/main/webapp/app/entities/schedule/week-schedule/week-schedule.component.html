@@ -1,0 +1,131 @@
+<div style="display: flex; flex-direction: row; justify-content: flex-start">
+  <div style="display: flex; flex-direction: column; width: 100%">
+    <div *ngIf="showActionButtons" style="display: flex; flex-direction: row; margin-bottom: 1em">
+      <button
+        pButton
+        type="button"
+        (click)="openCreatorDialog()"
+        class="menu_button"
+        label="Dodaj event"
+        [disabled]="!selectedIndexes"
+      ></button>
+      <button pButton type="button" (click)="openScheduleCreatorDialog()" class="menu_button ml-2" label="Stwórz plan"></button>
+      <div style="display: flex; flex-direction: column" class="ml-2">
+        <!-- <label for="vertical" style="display: block">Font Size</label> -->
+        <p-inputNumber [(ngModel)]="fontSize" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="6" [max]="20">
+        </p-inputNumber>
+      </div>
+    </div>
+    <div *ngIf="horizontalCols.length == 7">
+      <p-table
+        #scheduleTable
+        [columns]="horizontalCols"
+        [value]="verticalCols"
+        [resizableColumns]="true"
+        columnResizeMode="expand"
+        responsiveLayout="scroll"
+        [scrollable]="true"
+        scrollHeight="80vh"
+        [responsive]="true"
+        appendTo="body"
+        (onColResize)="resizeTableColumn($event)"
+        styleClass="p-datatable-gridlines"
+      >
+        <ng-template pTemplate="caption">
+          <div class="table-caption">
+            <div></div>
+            <div style="display: flex; align-items: center">
+              <jhi-disabled-text-input
+                #captionInput
+                [text]="schedule.title!"
+                [disabled]="true"
+                (textEvent)="setScheduleTitle($event)"
+                (click)="captionInput.disabled = false"
+                (mouseleave)="captionInput.disabled = true"
+                styleClass="caption-input"
+                style="height: 90%; font-size: 1.2em; text-align: center; border-radius: 2em; transition: width 1s ease-in-out"
+              ></jhi-disabled-text-input>
+            </div>
+            <div style="display: flex; align-items: center">
+              <button
+                pButton
+                type="button"
+                (click)="toggleActionButtons()"
+                class="menu_button"
+                label=""
+                [icon]="showActionButtons ? 'pi pi-angle-double-up' : 'pi pi-angle-double-down'"
+                style="margin-right: 1em; height: 80%"
+              ></button>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+          <tr class="header-columns-row">
+            <th class="time-header-column" [style.fontSize.px]="fontSize">Godzina</th>
+            <th *ngFor="let col of columns" class="header-column" (resized)="resize($event, col)" pResizableColumn>
+              {{ col.data }}
+            </th>
+          </tr>
+          <tr class="header-columns-row" style="border-left: 1px solid black">
+            <th class="time-header-column"></th>
+            <th class="employees-row-header-column" *ngFor="let col of columns">
+              <tr>
+                <td
+                  *ngFor="let employee of col.objects"
+                  class="employee"
+                  [style.maxWidth.px]="employee.columnWidth"
+                  [style.width.px]="employee.columnWidth"
+                  [style.minWidth.px]="employee.columnWidth"
+                  [style.fontSize.px]="fontSize"
+                  [pTooltip]="showEmployeeTooltip(employee.data)"
+                >
+                  {{ employee.data.lastName }}
+                </td>
+              </tr>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-hourIndex="rowIndex" let-columns="columns">
+          <tr>
+            <td class="header-columns-vertical" [style.fontSize.px]="fontSize">
+              {{ rowData }}
+            </td>
+            <td
+              *ngFor="let col of columns; index as dayIndex"
+              (click)="selectOneScheduleSquare($event, dayIndex, hourIndex)"
+              [ngClass]="{
+                'selected-column': checkSelectedCells(dayIndex, hourIndex)
+              }"
+            >
+              <ng-container *ngFor="let employee of col.objects; index as employeeIndex">
+                <ng-container *ngFor="let event of employee.objects; index as eventIndex">
+                  <div
+                    (click)="selectEvent(event)"
+                    (dblclick)="openEditDialog(event, employeeIndex, eventIndex)"
+                    *ngIf="isEventAtTime(event, rowData)"
+                    class="event"
+                    [style.left.px]="employee.columnOffsetLeft"
+                    [style.width.px]="employee.columnWidth"
+                    [style.top.px]="hourIndex * (fontSize + 8 + (fontSize - 8) * 0.5) + 65 + hourIndex * 2"
+                    [style.height.px]="fontSize + 8 + (fontSize - 8) * 0.5"
+                    [style.fontSize.px]="fontSize"
+                    [pTooltip]="showEventTooltip(event)"
+                  >
+                    {{ event.title }}
+                  </div>
+                </ng-container>
+              </ng-container>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <!-- <div *ngIf="employeeListVisible">
+    <div class="fcc" style="width: 10%;">
+
+    </div>
+  </div>
+</div> -->
+  <jhi-backdrop *ngIf="showBackdrop"></jhi-backdrop>
+</div>

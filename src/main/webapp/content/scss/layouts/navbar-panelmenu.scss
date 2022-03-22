@@ -1,0 +1,82 @@
+.p-panelmenu-content {
+  padding: 0.1em 0 0.2em 0em;
+  margin-left: 0.5em;
+  border-left: 9px double rgba(74, 34, 97, 0.6);
+  height: 100%;
+}
+
+.p-menu-list {
+  background-color: $secondary;
+  height: 100%;
+}
+
+.p-menuitem-text {
+  color: var(--menuitem-text-color);
+  padding-left: 0.5em;
+  text-shadow: 0px 0px 1em rgba(255, 236, 185, 0.4);
+  height: 100%;
+  text-shadow: var(--shadow);
+}
+
+.p-panelmenu-header {
+  padding-top: 0.2em;
+  padding-bottom: 0.1em;
+  background-color: $secondary;
+  border-left: 15px solid rgba(92, 37, 99, 0.4);
+  border-bottom: 5px solid rgba(92, 37, 99, 0.4);
+  border-right: 3px solid rgba(92, 37, 99, 0.35);
+  border-top: 1px solid rgba(92, 37, 99, 0.3);
+  border-radius: 1em;
+  box-shadow: inset 5px 0px 0.5em rgba(92, 37, 99, 0.2), 5px 5px 0.4em rgba(92, 37, 99, 0.2);
+  margin-bottom: 0.3em;
+  --menuitem-text-color: rgba(74, 34, 97, 0.65);
+  height: 100%;
+  --shadow: '';
+}
+
+.p-panelmenu-header:hover {
+  --menuitem-text-color: rgba(255, 227, 227, 0.9);
+  box-shadow: inset 0em 0em 2em rgba(92, 37, 99, 0.4), inset 0em 0em 1em rgba(92, 37, 99, 0.2);
+  --shadow: 1px 1px 2px rgba(92, 37, 99, 0.7);
+}
+
+.p-panelmenu-cust {
+  padding-bottom: 0.2em;
+  background-color: rgba(218, 117, 133, 0.5);
+  border-bottom: 0.5em solid rgba(74, 34, 97, 0.55);
+  border-top: 0.2em solid $primary;
+  border-right: 0.2em dotted $primary;
+  border-bottom-right-radius: 1em;
+  border-top-right-radius: 1em;
+  box-shadow: 0em 0.2em 0.7em rgba(26, 0, 43, 0.5), inset 1em 0px 1.3em rgba(150, 80, 150, 0.7);
+  transition: width 0.5s ease-in-out, box-shadow 0.5s ease-in-out, border-left 0.5s ease;
+  overflow: hidden;
+}
+
+.button_menu-toggle {
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
+  padding-left: 0.1em;
+  width: 2em;
+  transition: transform 1s ease-in-out;
+  transform: rotate(var(--rotation));
+}
+
+.button-rotation-0 {
+  --rotation: 0deg;
+}
+
+.button-rotation-90 {
+  --rotation: 90deg;
+}
+
+.button_menu-logout {
+  width: 150px;
+  position: absolute;
+  height: 1.4em;
+  background-color: $primary;
+  -webkit-background-clip: text;
+  -webkit-animation-name: move;
+  -webkit-animation-duration: 3.5s;
+  -webkit-animation-iteration-count: infinite;
+}

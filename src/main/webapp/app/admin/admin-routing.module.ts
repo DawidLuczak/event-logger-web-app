@@ -8,34 +8,30 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([
       {
         path: 'user-management',
-        loadChildren: () => import('./user-management/user-management.module').then(m => m.UserManagementModule),
+        loadChildren: (): Promise<any> => import('./user-management/user-management.module').then(m => m.UserManagementModule),
         data: {
           pageTitle: 'userManagement.home.title',
         },
       },
       {
         path: 'docs',
-        loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule),
+        loadChildren: (): Promise<any> => import('./docs/docs.module').then(m => m.DocsModule),
       },
       {
         path: 'configuration',
-        loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationModule),
+        loadChildren: (): Promise<any> => import('./configuration/configuration.module').then(m => m.ConfigurationModule),
       },
       {
         path: 'health',
-        loadChildren: () => import('./health/health.module').then(m => m.HealthModule),
+        loadChildren: (): Promise<any> => import('./health/health.module').then(m => m.HealthModule),
       },
       {
         path: 'logs',
-        loadChildren: () => import('./logs/logs.module').then(m => m.LogsModule),
+        loadChildren: (): Promise<any> => import('./logs/logs.module').then(m => m.LogsModule),
       },
       {
         path: 'metrics',
-        loadChildren: () => import('./metrics/metrics.module').then(m => m.MetricsModule),
-      },
-      {
-        path: 'tracker',
-        loadChildren: () => import('./tracker/tracker.module').then(m => m.TrackerModule),
+        loadChildren: (): Promise<any> => import('./metrics/metrics.module').then(m => m.MetricsModule),
       },
       /* jhipster-needle-add-admin-route - JHipster will add admin routes here */
     ]),

@@ -1,0 +1,33 @@
+@import '/src/main/webapp/content/scss/bootstrap-variables';
+
+.caption-input {
+  color: white;
+  width: 100%;
+  margin-left: 10%;
+}
+
+.input-disabled {
+  background-color: $secondary1;
+  color: $primary;
+  border: 2px dashed $primary;
+  box-shadow: 0 0 2px $darkBorder;
+  font-weight: bold;
+  width: 15em;
+}
+
+.input-enabled {
+  background-color: $secondary1;
+  color: black;
+  border: 2px dotted $darkBorder;
+  box-shadow: 0 0 6px $secondary1;
+  width: 30em;
+}
+
+input:focus {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: none;
+  border-radius: 2em;
+}

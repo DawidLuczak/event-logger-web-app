@@ -1,0 +1,49 @@
+<div>
+  <p-table [columns]="horizontalCols" [value]="verticalCols" responsiveLayout="scroll">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th style="width: 60px">Godzina</th>
+        <th *ngFor="let col of columns" [style.width.px]="col.columnWidth">
+          {{ col.date | date: 'shortDate' }}
+        </th>
+      </tr>
+      <tr>
+        <th></th>
+        <th *ngFor="let col of columns">
+          <ng-container>
+            <th
+              *ngFor="let employee of col.objects"
+              style="width: 60px; height: 28px; overflow: hidden"
+              [pTooltip]="showEmployeeTooltip(employee.employee)"
+            >
+              {{ employee.employee.lastName }}
+            </th>
+          </ng-container>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-index="rowIndex" let-columns="columns">
+      <tr>
+        <th>
+          {{ rowData }}
+        </th>
+        <td *ngFor="let col of columns">
+          <ng-container *ngFor="let employee of col.objects">
+            <ng-container *ngFor="let event of employee.events">
+              <div
+                (click)="openEditDialog(event)"
+                *ngIf="isEventAtTime(event, rowData)"
+                class="event"
+                [style.left.px]="employee.offsetLeft"
+                [style.top.px]="index * 28 + 63"
+                [pTooltip]="showEventTooltip(event)"
+              >
+                {{ event.title }}
+              </div>
+            </ng-container>
+          </ng-container>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

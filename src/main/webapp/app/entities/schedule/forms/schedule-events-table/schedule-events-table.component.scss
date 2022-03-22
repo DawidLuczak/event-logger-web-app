@@ -1,0 +1,26 @@
+@import '../../../../../content/scss/bootstrap-variables';
+
+th {
+  border: 2px solid $primary;
+  text-align: center;
+}
+
+tr,
+td {
+  border: 1px solid $primary;
+  margin: 0px;
+  padding: 0px;
+}
+
+.event {
+  border-right: 1px solid $primary;
+  border-left: 1px solid $primary;
+  background-color: $secondary;
+  width: 3em;
+  display: inline-block;
+  position: absolute;
+  width: 60px;
+  height: 28px;
+  overflow: hidden;
+  text-align: center;
+}

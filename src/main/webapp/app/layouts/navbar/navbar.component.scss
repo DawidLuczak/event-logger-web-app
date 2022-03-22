@@ -1,42 +1,32 @@
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
+@import '../../../content/scss/global.scss';
 
-/* ==========================================================================
-Navbar
-========================================================================== */
-
-.navbar-version {
-  font-size: 0.65em;
-  color: $navbar-dark-color;
+.nav-item {
+  font-size: 1.5em;
 }
 
-.profile-image {
-  height: 1.75em;
-  width: 1.75em;
+p-panelMenu {
+  font-size: 2.2em;
+  font-weight: bolder;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  background-color: palevioletred;
+  height: 100%;
+  text-transform: lowercase;
+  z-index: 999;
 }
 
-.navbar {
-  padding: 0.2rem 1rem;
-
-  ul.navbar-nav {
-    .nav-item {
-      margin-left: 0.5em;
-    }
-  }
-
-  a.nav-link {
-    font-weight: 400;
-  }
+.menu_button-toggle {
+  margin-bottom: 1em;
 }
 
-/* ==========================================================================
-Logo styles
-========================================================================== */
-.logo-img {
-  height: 45px;
-  width: 45px;
-  display: inline-block;
-  vertical-align: middle;
-  background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
-  background-size: contain;
+.text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 2em;
+  left: 2em;
+  color: rgba(74, 34, 97, 0.8);
+  transition: left 0.5s ease-in-out;
 }

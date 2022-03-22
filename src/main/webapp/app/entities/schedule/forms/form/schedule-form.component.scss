@@ -1,0 +1,35 @@
+@import '../../../../../content/scss/bootstrap-variables';
+@import '/src/main/webapp/content/scss/layouts/edit-dropdown.scss';
+@import '/src/main/webapp/content/scss/layouts/dynamic-dialog.scss';
+
+.p-datepicker {
+  background-color: $lightbg;
+  color: black;
+  border: 1px solid $darkbg;
+  box-shadow: 1px 1px 0.2em $darkbg, inset 1px 1px 0.2em $lightbg;
+  width: auto;
+}
+
+::ng-deep .p-inputnumber {
+  background-color: transparent;
+  border: none;
+  height: 4em;
+  width: 4em;
+}
+
+::ng-deep .p-inputnumber-input {
+  font-size: 1.5em;
+  background-color: $lightbg;
+  border: 2px solid $primary;
+  border-radius: 40%;
+  width: 4em;
+  max-width: 4em;
+  font-weight: bold;
+  padding-left: 1em;
+}
+
+::ng-deep .p-inputnumber-button {
+  background-color: $secondary;
+  border: 2px solid $primary;
+  border-radius: 40%;
+}

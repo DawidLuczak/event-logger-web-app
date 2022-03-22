@@ -1,13 +1,25 @@
-<jhi-page-ribbon></jhi-page-ribbon>
-
 <div>
-  <router-outlet name="navbar"></router-outlet>
-</div>
-
-<div class="container-fluid">
-  <div class="card jh-card">
-    <router-outlet></router-outlet>
-  </div>
-
-  <jhi-footer></jhi-footer>
+  <ng-container *ngIf="accountService.isAuthenticated(); else elseTemplate">
+    <div style="background-color: rgba(255, 148, 148, 0.15)">
+      <div style="display: flex; flex-direction: row">
+        <div class="h-100">
+          <jhi-navbar></jhi-navbar>
+        </div>
+        <div class="container-fluid">
+          <div class="card jh-card" style="background-color: rgba(0, 0, 0, 0)">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <jhi-footer></jhi-footer>  -->
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div style="display: flex; flex-direction: row; justify-content: center" class="lpurple01-bg lpurple03-bs bt-purple">
+      <div class="banner-container">
+        <jhi-banner></jhi-banner>
+      </div>
+    </div>
+    <jhi-login></jhi-login>
+  </ng-template>
 </div>

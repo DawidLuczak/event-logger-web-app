@@ -1,0 +1,80 @@
+<div>
+  <h2 id="page-heading" data-cy="CommunityHeading">
+    <div class="d-flex justify-content-between">
+      <span jhiTranslate="eventloggerApp.community.home.title">Communities</span>
+      <span>
+        <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+          <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+          <span jhiTranslate="eventloggerApp.community.home.refreshListLabel">Refresh List</span>
+        </button>
+        <button
+          id="jh-create-entity"
+          data-cy="entityCreateButton"
+          class="btn btn-primary jh-create-entity create-community"
+          (click)="openCreatorDialog()"
+        >
+          <fa-icon icon="plus"></fa-icon>
+          <span jhiTranslate="eventloggerApp.community.home.createLabel"> Create a new Community </span>
+        </button>
+      </span>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="communities?.length === 0">
+    <span jhiTranslate="eventloggerApp.community.home.notFound">No communities found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="communities && communities.length > 0">
+    <table class="table table-striped list-table" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.community.title">Title</span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.community.description">Description</span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="eventloggerApp.community.employees"></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let community of communities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/community', community.id, 'community-view']">{{ community.title }}</a>
+          </td>
+          <td>{{ community.description }}</td>
+          <td>{{ community.employees?.length }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/community', community.id, 'community-view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" (click)="openEditDialog(community)" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(community)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<jhi-backdrop *ngIf="isModalDialogOpen"></jhi-backdrop>

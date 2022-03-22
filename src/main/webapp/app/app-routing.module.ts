@@ -15,21 +15,28 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
     RouterModule.forRoot(
       [
         {
+          path: 'home',
+          data: { pageTitle: 'home' },
+          canActivate: [UserRouteAccessService],
+          loadChildren: (): Promise<any> => import('./home/home.module').then(m => m.HomeModule),
+        },
+        {
           path: 'admin',
           data: {
             authorities: [Authority.ADMIN],
           },
           canActivate: [UserRouteAccessService],
-          loadChildren: () => import('./admin/admin-routing.module').then(m => m.AdminRoutingModule),
+          loadChildren: (): Promise<any> => import('./admin/admin-routing.module').then(m => m.AdminRoutingModule),
         },
         {
           path: 'account',
-          loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
+          loadChildren: (): Promise<any> => import('./account/account.module').then(m => m.AccountModule),
         },
         {
           path: 'login',
-          loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+          loadChildren: (): Promise<any> => import('./login/login.module').then(m => m.LoginModule),
         },
+
         ...LAYOUT_ROUTES,
       ],
       { enableTracing: DEBUG_INFO_ENABLED }

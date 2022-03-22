@@ -1,0 +1,36 @@
+@import '../../../../content/scss/bootstrap-variables';
+@import '/src/main/webapp/content/scss/layouts/edit-dropdown.scss';
+
+::ng-deep .p-dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: $lightbg;
+  border-bottom: 2px solid $primary;
+  border-left: 2px solid $primary;
+  border-right: 2px solid $primary;
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  box-shadow: 0 0 2em $darkbg;
+}
+
+::ng-deep .p-dialog-content {
+  padding: 2.5em 3em 2em 3em;
+  width: 100%;
+}
+
+::ng-deep .p-dialog-header {
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom: 2px solid $darkfont;
+  font-size: 2em;
+  background-color: $primary;
+  color: $lightfont;
+  font-weight: 700;
+  justify-content: center;
+  width: calc(100% + 1px);
+  height: 2em;
+  text-transform: uppercase;
+}

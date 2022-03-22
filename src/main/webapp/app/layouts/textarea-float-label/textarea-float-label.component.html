@@ -1,0 +1,15 @@
+<span class="p-float-label">
+  <label for="description">{{ title }}</label>
+  <textarea
+    inputId="description"
+    rows="3"
+    cols="30"
+    [(ngModel)]="text"
+    (ngModelChange)="change($event)"
+    pInputTextarea
+    class="ng-invalid ng-dirty input"
+    [maxlength]="maxLength"
+    [style]="{ width: width }"
+  >
+  </textarea>
+</span>

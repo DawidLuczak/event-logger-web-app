@@ -1,0 +1,9 @@
+@import '/src/main/webapp/content/scss/bootstrap-variables';
+
+.parent_node {
+  border: 2px solid $primary;
+}
+
+.child_node {
+  border: 1px solid $primary;
+}

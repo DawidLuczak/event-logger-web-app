@@ -1,0 +1,26 @@
+{
+  "eventloggerApp": {
+    "department": {
+      "home": {
+        "title": "Departmenty",
+        "refreshListLabel": "Odśwież listę",
+        "createLabel": "Dodaj Department",
+        "createOrEditLabel": "Dodaj lub edytuj: Department",
+        "notFound": "Nie znaleziono Departamentów"
+      },
+      "created": "Utworzono nowy Departament z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono Departament z identyfikatorem {{ param }}",
+      "deleted": "Usunięto Departament z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Departament {{ id }}?"
+      },
+      "detail": {
+        "title": "Departament"
+      },
+      "id": "ID",
+      "title": "Tytuł",
+      "description": "Opis",
+      "schedules": "Plany"
+    }
+  }
+}

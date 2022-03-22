@@ -1,0 +1,33 @@
+{
+  "eventloggerApp": {
+    "employee": {
+      "home": {
+        "title": "Pracownicy",
+        "refreshListLabel": "Odśwież listę",
+        "createLabel": "Dodaj Pracownika",
+        "createOrEditLabel": "Dodaj lub edytuj: Pracownika",
+        "notFound": "Nie znaleziono Pracowników"
+      },
+      "created": "Utworzono nowego Pracownika z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono Pracownika z identyfikatorem {{ param }}",
+      "deleted": "Usunięto Pracownika z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Pracownika {{ id }}?"
+      },
+      "detail": {
+        "title": "Pracownik"
+      },
+      "id": "ID",
+      "firstName": "Imię",
+      "lastName": "Naziwsko",
+      "email": "Email",
+      "phoneNumber": "Numer telefonu",
+      "hireDate": "Data zatrudnienia",
+      "hours": "Liczba godzin",
+      "note": "Notatka",
+      "community": "Grupa społeczna",
+      "event": "Zajęcia",
+      "fullName": "Imię i nazwisko"
+    }
+  }
+}

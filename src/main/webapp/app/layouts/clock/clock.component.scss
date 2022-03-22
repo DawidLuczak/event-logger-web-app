@@ -1,0 +1,25 @@
+@import '/src/main/webapp/content/scss/bootstrap-variables';
+
+.text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 2em;
+  left: 2em;
+  color: rgba(74, 34, 97, 0.8);
+  transition: left 0.5s ease-in-out;
+}
+
+.date {
+  font-size: 3em;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.time {
+  font-weight: bold;
+  font-size: 4em;
+  line-height: 0.7em;
+}

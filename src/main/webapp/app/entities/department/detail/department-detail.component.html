@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+  <div class="col-12">
+    <div *ngIf="department">
+      <div class="entity-header-container">
+        <div class="entity-id-shadow">{{ department.id }}</div>
+        <div class="entity-header">{{ department.title }}</div>
+        <div style="position: absolute; right: 1em; top: 1em">
+          <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+            <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+          </button>
+          <button type="button" (click)="openEditDialog(department)" class="btn btn-primary">
+            <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+          </button>
+        </div>
+      </div>
+      <hr style="margin-bottom: -1em" />
+      <jhi-alert-error></jhi-alert-error>
+      <jhi-alert></jhi-alert>
+      <p-accordion class="accordion" [multiple]="true">
+        <p-accordionTab header="Szczegóły" [selected]="true">
+          <div class="d-flex row justify-content-center">
+            <dl class="table_entity-details">
+              <dt>
+                <span jhiTranslate="eventloggerApp.department.title"></span>
+              </dt>
+              <dd>
+                <span>{{ department.title }}</span>
+              </dd>
+              <dt>
+                <span jhiTranslate="eventloggerApp.department.description">Description</span>
+              </dt>
+              <dd>
+                <span>{{ department.description }}</span>
+              </dd>
+            </dl>
+          </div>
+        </p-accordionTab>
+        <p-accordionTab header="Lista planów">
+          <jhi-schedule-table [schedules]="department.schedules!"></jhi-schedule-table>
+          <button
+            style="margin-top: 1em"
+            class="menu_button"
+            type="button"
+            pButton
+            icon="pi pi-info-circle"
+            label="Powiąż"
+            (click)="openScheduleConnector()"
+          ></button>
+        </p-accordionTab>
+        <p-accordionTab header="Drzewo planów">
+          <jhi-schedules-tree-table [values]="schedules"></jhi-schedules-tree-table>
+          <button
+            style="margin-top: 1em"
+            class="menu_button"
+            type="button"
+            pButton
+            icon="pi pi-info-circle"
+            label="Powiąż"
+            (click)="openScheduleConnector()"
+          ></button>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>
+<jhi-backdrop *ngIf="isModalDialogOpen"></jhi-backdrop>
